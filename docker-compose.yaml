@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  app:
+    build: .
+    container_name: maratona-api
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+      networks:
+        - app-network
+    tty: true
+    
+  db:
+    image: keinos/sqlite3
+    container_name: maratona-db
+    restart: always
+    tty: true
+    networks:
+      - app-network
+
+networks:
+    app-network:
+        driver: bridge
