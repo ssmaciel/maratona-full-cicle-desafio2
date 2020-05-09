@@ -18,7 +18,7 @@ export class MaratonaController {
     async index() {
         return await this.maratonaRepository.find({
             order: {
-                created_at: "DESC"
+                aula: "DESC"
             }
         })
     }

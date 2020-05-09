@@ -13,7 +13,4 @@ export class Maratona {
     @Column()
     aula: string;
 
-    @CreateDateColumn({ type: "timestamp" })
-    created_at: Date;
-
 }
